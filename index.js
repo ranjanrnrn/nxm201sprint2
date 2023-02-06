@@ -11,6 +11,9 @@ const app =express();
 
 app.use(express.json())
 
+app.get("/",(req,res)=>{
+    res.send("Homepage")
+})
 app.post("/signup",(req,res)=>{
     const {name, email, password, role}= req.body;
     bcrypt.hash(password, 5, async function(err, hash){
