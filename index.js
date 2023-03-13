@@ -48,12 +48,16 @@ app.post("/login", async (req,res)=>{
 })
 
 
-app.get("/goldrate", authenticate, (req,res)=>{
-    res.send("here are your gold rate")
+app.get("/products", authenticate, (req,res)=>{
+    res.send("here are your products")
 })
 
-app.get("/userstats", authenticate, authorise(["manager"]), (req,res)=>{
-    res.send("your user stats")
+app.get("/addproducts", authenticate, authorise(["seller"]), (req,res)=>{
+    res.send("rpoduct added")
+})
+
+app.get("/deleteproducts", authenticate, authorise(["seller"]), (req,res)=>{
+    res.send("product deleted")
 })
 
 
